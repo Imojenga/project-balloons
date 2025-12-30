@@ -1,0 +1,41 @@
+@use "../abstracts/mixins"
+@use "../abstracts/variables"
+
+.footer
+    padding: 8rem
+    background-color: #333333
+    @include mixins.respond(tab-port)
+        padding-bottom: 5rem
+    &__logo
+        width: 12rem
+    &__list
+        list-style: none
+        text-align: center
+    &__item
+        display: inline-block
+        &:not(:last-child)
+            margin-right: 5rem
+        @include mixins.respond(tab-land)
+            &:not(:last-child)
+                margin-right: 2rem
+        @include mixins.respond(tab-port)
+            &:not(:last-child)
+                margin: 0
+            padding: 2rem
+    &__link
+        &:link, &:visited
+            color: variables.$color-white
+            text-decoration: none
+            text-transform: uppercase
+            font-size: variables.$font-size-paragraph
+            letter-spacing: .2rem
+            font-weight: 300
+            display: inline-block
+            transition: all .3s
+        @include mixins.respond(tab-land)
+            &:link, &:visited
+                font-size: 1.4rem
+        &:hover
+            transform: rotate(5deg) scale(1.2)
+            color: variables.$color-brown-dark
+            text-shadow: variables.$shadow-h2

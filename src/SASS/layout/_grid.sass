@@ -1,0 +1,47 @@
+@use "../abstracts/mixins"
+@use "../abstracts/variables"
+
+.row
+    max-width: variables.$grid-width
+    margin: 0 auto
+    &:not(:last-child)
+        margin-bottom: variables.$margin-vertical-big
+        @include mixins.respond(tab-port)
+            margin-bottom: 4rem
+    @include mixins.clearfix
+    @include mixins.respond(tab-land)
+        max-width: 85.1rem
+    @include mixins.respond(tab-port)
+        max-width: 60rem
+    @include mixins.respond(phone)
+        max-width: 50.1rem
+
+.col-1-of-2
+    width: calc((100% - #{variables.$gutter-horizontal}) / 2)
+    @include mixins.respond(tab-land)
+        width: calc((100% - #{3rem}) / 2)
+
+.col-1-of-3
+    width: calc((100% - #{variables.$gutter-horizontal} * 2) / 3)
+    @include mixins.respond(tab-land)
+        width: calc((100% - #{3rem} * 2) / 3)
+
+.col-1-of-4
+    width: calc((100% - #{variables.$gutter-horizontal} * 3) / 4)
+    @include mixins.respond(tab-land)
+        width: calc((100% - #{3rem} * 3) / 4)
+
+[class^="col-"]
+    &:not(:last-child)
+        margin-right: variables.$gutter-horizontal
+    float: left
+    @include mixins.respond(tab-land)
+        &:not(:last-child)
+            margin-right: 3rem
+    @include mixins.respond(tab-port)
+        width: 100%
+        &:not(:last-child)
+            margin-right: 0
+            margin-bottom: 4rem
+
+
