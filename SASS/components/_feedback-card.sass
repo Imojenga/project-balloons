@@ -3,10 +3,24 @@
     background: rgba($color-white, 0.75)
     box-shadow: $box-shadow
     margin: 0 auto
-    padding: 5rem 17rem
+    padding: 5rem 12rem
     transform: skewX(-30deg)
+    @include respond(tab-land)
+        padding: 5rem 7rem
+        transform: skewX(-20deg)
+    @include respond(tab-port)
+        padding: 3rem 4em
+        transform: skewX(-10deg)
     & > *
         transform: skewX(30deg)
+    @include respond(tab-land)
+        & > *
+            transform: skewX(20deg)
+    @include respond(tab-port)
+        & > *
+            transform: skewX(10deg)
+            text-align: center
+
     &__img
         height: 17rem
         width: 17rem
@@ -17,6 +31,10 @@
         margin-right: 4rem
         overflow: hidden
         position: relative
+        @include respond(tab-port)
+            float: none
+            margin: 0 auto
+            margin-bottom: 3rem
         img
             height: 100%
             transform: scale(1.2)
