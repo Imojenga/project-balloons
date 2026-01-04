@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "gulpfile.js",
   "scripts": {
-    "compile:sass": "sass sass/styles.sass css/styles.css -w"
+    "compile:sass": "sass src/sass/styles.sass src/css/styles.css -w"
   },
   "devDependencies": {
     "browser-sync": "^2.26.5",
